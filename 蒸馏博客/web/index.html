@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f0f10" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)" />
+    <!-- 下面这些占位符由后端在返回页面时替换成站点名/简介，爬虫不跑 JS，只能这么做 -->
+    <meta name="description" content="__SITE_DESC__" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="__SITE_NAME__" />
+    <meta property="og:title" content="__SITE_NAME__" />
+    <meta property="og:description" content="__SITE_DESC__" />
+    <meta property="og:url" content="__SITE_URL__" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="__SITE_NAME__" />
+    <meta name="twitter:description" content="__SITE_DESC__" />
+    <title>__PAGE_TITLE__</title>
+    <!--
+      站点信息（站点名/称呼/问候/自述/推荐问题/页脚）由服务端序列化到这里。
+      前端首帧直接读它渲染，因此刷新时不会先闪一遍演示文案再换成真实文案。
+      type="application/json" 是数据块，浏览器不会执行，也不受 CSP script-src 限制。
+      开发模式（Vite 5173）下这里保持字面量占位符，前端会自动回退到 /api/profile。
+    -->
+    <script id="boot-profile" type="application/json">__SITE_PROFILE__</script>
+    <!-- 主题引导脚本必须同步执行，放在 head 里避免闪屏；独立文件以满足 CSP -->
+    <script src="/theme-boot.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
