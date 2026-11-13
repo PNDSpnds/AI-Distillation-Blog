@@ -1,0 +1,18 @@
+{
+  "name": "chat-blog-server",
+  "private": true,
+  "version": "0.2.0",
+  "description": "个人对话式博客后端：内容仓库、后台接口、文件存储",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mammoth": "^1.13.0",
+    "multer": "^2.0.2",
+    "pdf-parse": "^2.4.5"
+  }
+}
